@@ -1,0 +1,80 @@
+$ErrorActionPreference = 'Stop'
+$root = Split-Path -Parent $MyInvocation.MyCommand.Path
+$img = Join-Path $root 'img'
+New-Item -ItemType Directory -Force -Path $img | Out-Null
+
+$assets = @{
+  'cover-bg.png'='https://www.figma.com/api/mcp/asset/ef7b9467-c116-4542-8d97-6588d9ac0123/d501c.png'
+  'about.png'='https://www.figma.com/api/mcp/asset/ce088282-24bf-4f55-aea7-7495e582407b/bec6b.png'
+  'badge.svg'='https://www.figma.com/api/mcp/asset/ce088282-24bf-4f55-aea7-7495e582407b/2acf0.svg'
+  'arrow-up-right.svg'='https://www.figma.com/api/mcp/asset/ce088282-24bf-4f55-aea7-7495e582407b/59fa2.svg'
+  'status-arrow.svg'='https://www.figma.com/api/mcp/asset/475aeada-3b32-4a30-9c29-44da747803ac/029ac.svg'
+  'work-banner.png'='https://www.figma.com/api/mcp/asset/af500990-82e6-4835-97b0-ddf9d4dc9743/3fb9e.png'
+  'poster-chanel.png'='https://www.figma.com/api/mcp/asset/befc3846-fb01-4a2b-98f8-4f05c3cfb1be/8e594.png'
+  'poster-chair.png'='https://www.figma.com/api/mcp/asset/087c3a93-f7d3-4a4f-b96a-23bd6c7e64e8/e240d.png'
+  'poster-light.png'='https://www.figma.com/api/mcp/asset/087c3a93-f7d3-4a4f-b96a-23bd6c7e64e8/323ea.png'
+  'poster-aircon.png'='https://www.figma.com/api/mcp/asset/087c3a93-f7d3-4a4f-b96a-23bd6c7e64e8/933ab.png'
+  'detail-tomato.png'='https://www.figma.com/api/mcp/asset/dedfe017-d5df-427d-bdac-1a5892ba041f/c4f8c.png'
+  'detail-chocolate.png'='https://www.figma.com/api/mcp/asset/dedfe017-d5df-427d-bdac-1a5892ba041f/724cc.png'
+  'detail-headphone.png'='https://www.figma.com/api/mcp/asset/dedfe017-d5df-427d-bdac-1a5892ba041f/3ee6c.png'
+  'popup-left.png'='https://www.figma.com/api/mcp/asset/4d8bbc92-f09f-4f55-b8b9-fd7c09de7538/525fe.png'
+  'popup-center.png'='https://www.figma.com/api/mcp/asset/4d8bbc92-f09f-4f55-b8b9-fd7c09de7538/84db9.png'
+  'popup-right.png'='https://www.figma.com/api/mcp/asset/4d8bbc92-f09f-4f55-b8b9-fd7c09de7538/0e9f6.png'
+  'petal.png'='https://www.figma.com/api/mcp/asset/f8d79150-5c0f-42ce-b912-38d6d25298b4/6c689.png'
+  'aesop-intro-pc.png'='https://www.figma.com/api/mcp/asset/7fdd1a2c-a7c4-4441-8ef4-f9e1c1042ffe/05e38.png'
+  'aesop-intro-pad.png'='https://www.figma.com/api/mcp/asset/e6228d2c-d748-420c-b115-0aec9753b874/b0d99.png'
+  'aesop-intro-mo.png'='https://www.figma.com/api/mcp/asset/d27aa261-dd1a-4045-bd89-e1bf6061e1fa/49a10.png'
+  'aesop-icon-identity.svg'='https://www.figma.com/api/mcp/asset/fa0921f4-1f5e-4d98-a34f-bfef1f9ac51c/9bcef.svg'
+  'aesop-icon-sun.svg'='https://www.figma.com/api/mcp/asset/fa0921f4-1f5e-4d98-a34f-bfef1f9ac51c/57a78.svg'
+  'aesop-icon-shopping.svg'='https://www.figma.com/api/mcp/asset/fa0921f4-1f5e-4d98-a34f-bfef1f9ac51c/cfeb3.svg'
+  'aesop-header-pc.png'='https://www.figma.com/api/mcp/asset/3c764980-2bb7-4f0f-b592-e41fa52115b7/b135b.png'
+  'aesop-laptop.png'='https://www.figma.com/api/mcp/asset/7c65090a-6219-4574-84b9-0e5ef0c65cc3/4bd3c.png'
+  'aesop-green-blob.svg'='https://www.figma.com/api/mcp/asset/b0863406-eaf4-4bcf-8779-c4f9e45d9a5d/731d5.svg'
+  'aesop-leaf.png'='https://www.figma.com/api/mcp/asset/953bbfbb-6c1f-488f-a7e6-016dbcd6b5a9/95c05.png'
+  'aesop-forest-laptop.png'='https://www.figma.com/api/mcp/asset/514ab5b7-0b9d-443c-bc11-7a77dbf27105/fa65f.png'
+  'aesop-best-pc.png'='https://www.figma.com/api/mcp/asset/b31b96cd-1b97-4690-88fa-d566ea89cf8a/c2b11.png'
+  'aesop-horizontal.png'='https://www.figma.com/api/mcp/asset/56b4b2e6-4ffc-4ee5-9e2a-e348384f91a0/4de4c.png'
+  'note-line-right.svg'='https://www.figma.com/api/mcp/asset/ea01eb83-ef69-4205-919c-ddc9c3efcfda/9de81.svg'
+  'note-line-left.svg'='https://www.figma.com/api/mcp/asset/99d9ea38-b9de-4029-be2e-4f3e9cbabaef/7a224.svg'
+  'note-line-down.svg'='https://www.figma.com/api/mcp/asset/00fd2622-777d-4b21-a8bd-a52db28fb3a5/b8172.svg'
+  'aesop-productlist-pad.png'='https://www.figma.com/api/mcp/asset/0c0d8078-a405-42d1-a9bb-e5c15a6c2f9e/c050f.png'
+  'aesop-product-pad.png'='https://www.figma.com/api/mcp/asset/dd670a4d-6130-4b10-b2da-e882b65606ca/da9de.png'
+  'aesop-category-mobile.png'='https://www.figma.com/api/mcp/asset/379fab23-f5b8-4c38-aa3b-269fe41c672b/9e12b.png'
+  'aesop-detail-pc.png'='https://www.figma.com/api/mcp/asset/4fe87430-6447-4b69-ad71-e0f699ffe82b/2c802.png'
+  'aesop-detail-pad.png'='https://www.figma.com/api/mcp/asset/c43d415b-9c1e-4c16-914a-a5586a35c7ac/cd33a.png'
+  'aesop-detail-mobile.png'='https://www.figma.com/api/mcp/asset/0cef781b-0c33-4aa0-b671-cc09b6ed2206/23358.png'
+  'aesop-promo-pc.png'='https://www.figma.com/api/mcp/asset/bc94f008-2010-4c77-92ef-6f37006649ce/502b8.png'
+  'aesop-promo-mo1.png'='https://www.figma.com/api/mcp/asset/2c082037-b176-45fe-ba21-5e882171abf0/b3ce7.png'
+  'aesop-promo-mo2.png'='https://www.figma.com/api/mcp/asset/b7c2f07d-90bb-4ce2-8d0b-e565ff916eba/7dff2.png'
+  'homfit-pc.png'='https://www.figma.com/api/mcp/asset/7fe23fe1-a0ac-47c5-9b4b-ceea149f4f17/3acce.png'
+  'homfit-pad.png'='https://www.figma.com/api/mcp/asset/02dfce63-217d-4de2-af3f-3d59026357af/991ae.png'
+  'homfit-mo.png'='https://www.figma.com/api/mcp/asset/05de4b1c-7e9d-462a-8ece-13bcf09df005/500cf.png'
+  'homfit-beige-bg.svg'='https://www.figma.com/api/mcp/asset/7d5f625b-e783-4e8a-be0c-0d73b4473309/ae020.svg'
+  'homfit-story.png'='https://www.figma.com/api/mcp/asset/3c18af0c-ed26-41b0-ae36-b29554e1061c/d339d.png'
+  'homfit-logo-symbol-dark.svg'='https://www.figma.com/api/mcp/asset/8aacad61-6268-4d80-ad10-8981fa46f9b0/29d41.svg'
+  'homfit-logo-word-dark.svg'='https://www.figma.com/api/mcp/asset/8aacad61-6268-4d80-ad10-8981fa46f9b0/1e2a2.svg'
+  'homfit-logo-symbol-light.svg'='https://www.figma.com/api/mcp/asset/8aacad61-6268-4d80-ad10-8981fa46f9b0/3c283.svg'
+  'homfit-logo-word-light.svg'='https://www.figma.com/api/mcp/asset/8aacad61-6268-4d80-ad10-8981fa46f9b0/51492.svg'
+  'icon-laptop.svg'='https://www.figma.com/api/mcp/asset/e1b89aa1-ffc6-454c-a422-348fd86c75e5/2faa8.svg'
+  'icon-tablet.svg'='https://www.figma.com/api/mcp/asset/e1b89aa1-ffc6-454c-a422-348fd86c75e5/ba79c.svg'
+  'icon-mobile.svg'='https://www.figma.com/api/mcp/asset/e1b89aa1-ffc6-454c-a422-348fd86c75e5/6fb18.svg'
+  'homfit-product-mobile.png'='https://www.figma.com/api/mcp/asset/60048035-cc3d-438c-9508-5e1942d6765f/18b14.png'
+  'homfit-grid-pad.png'='https://www.figma.com/api/mcp/asset/d68ad687-8296-449f-9c62-32a161b595bb/9e994.png'
+  'homfit-hero-pad.png'='https://www.figma.com/api/mcp/asset/5c52251a-fab7-4419-9ff3-3f3c51a3dff6/ebc5d.png'
+  'homfit-hero-mo.png'='https://www.figma.com/api/mcp/asset/1e81cf0a-e32a-4a1d-9b72-14839860dd5d/dea46.png'
+  'homfit-pad4.png'='https://www.figma.com/api/mcp/asset/4b562b18-2602-4fbc-8768-4d41f0407863/4a0ae.png'
+  'homfit-horizontal.png'='https://www.figma.com/api/mcp/asset/565a0134-f5be-4647-ada6-7904b101d494/1b67f.png'
+  'homfit-responsive.png'='https://www.figma.com/api/mcp/asset/c3eb87a6-647d-4bfe-9b75-c71e8b135d97/2a20e.png'
+  'homfit-final.png'='https://www.figma.com/api/mcp/asset/3f6ccbdf-eb6e-4945-8732-9de0ef372702/7d3a1.png'
+  'contact.png'='https://www.figma.com/api/mcp/asset/c49b1686-da86-410a-b0d2-c15872ee939c/4ceb1.png'
+}
+
+Write-Host "Figma assets download start..." -ForegroundColor Cyan
+$index=0
+foreach($name in $assets.Keys){
+  $index++
+  $target=Join-Path $img $name
+  Write-Host "[$index/$($assets.Count)] $name"
+  Invoke-WebRequest -Uri $assets[$name] -OutFile $target -UseBasicParsing
+}
+Write-Host "Done. Open index.html with Live Server." -ForegroundColor Green
