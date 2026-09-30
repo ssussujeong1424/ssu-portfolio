@@ -9,8 +9,11 @@ body{margin:0;background:#fff;color:var(--ink);font-family:Pretendard,Arial,sans
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:none}
 figure,p,h1,h2,h3,dl,dd,dt{margin:0}
-.portfolio{position:relative;width:1920px;height:27851px;margin:0 auto;overflow:visible;background:#fff}
-.figma-section{position:absolute;left:0;width:1920px;overflow:hidden}
+.portfolio{position:relative;width:100%;max-width:1920px;height:auto;margin:0 auto;overflow:visible;background:#fff}
+.figma-section{overflow:hidden}
+/* Sections contribute to main's automatic height. Inner artwork keeps its
+   existing section-relative positioning until the responsive layout pass. */
+.portfolio > .figma-section{position:relative;top:auto;left:auto;width:100%}
 .image-crop{position:absolute;overflow:hidden}
 .image-crop>img{position:absolute;max-width:none}
 .badge{position:absolute;display:flex;align-items:center;gap:16px;height:53px;z-index:10}
