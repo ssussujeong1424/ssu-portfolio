@@ -6,6 +6,9 @@
   function init() {
     const root = document.querySelector('.portfolio');
     if (!root) return;
+    const syncDesktopScale = () => root.style.setProperty('--desktop-scale', Math.min(1, innerWidth / 1920));
+    syncDesktopScale();
+    window.addEventListener('resize', syncDesktopScale);
     const query = matchMedia('(max-width: 1024px)');
     const changes = [];
     function group(parentSelector, selector, name) {
@@ -35,6 +38,14 @@
         group('.aesop-case', '.aesop-laptop-shot,.dot-a,.dot-b', 'r2-hero-scene');
         group('.aesop-case', '.aesop-forest,.aesop-forest-video,.aesop-green-blob,.aesop-leaf', 'r2-forest-scene');
         group('.aesop-case', '.detail-pc-shot,.detail-pad-shot,.detail-mo-shot', 'r2-detail-scene');
+        const stars = root.querySelector('.detail-stars');
+        const detailScene = root.querySelector('.r2-detail-scene');
+        if (stars && detailScene) {
+          const marker = document.createComment('responsive stars original position');
+          stars.before(marker);
+          detailScene.append(stars);
+          changes.push(() => marker.replaceWith(stars));
+        }
         group('.aesop-case', '.promo-pc-shot,.promo-mo-1,.promo-mo-2', 'r2-promo-scene');
         group('.homfit-case', '.homfit-product-mo,.homfit-grid-pad,.column-grid,.grid-system-label,.grid-label-curve,.grid-copy', 'r2-grid-scene');
         group('.homfit-case', '.homfit-hero-pad,.homfit-hero-mo,.hero-copy', 'r2-banner-scene');
@@ -46,6 +57,65 @@
     }
     update();
     query.addEventListener('change', update);
+    // Native touch scrolling remains available; mouse dragging must not open a card.
+    const cards = root.querySelector('.detail-cards');
+    if (cards) {
+      let drag = null;
+      let suppressClick = false;
+      cards.addEventListener('pointerdown', event => {
+        if (innerWidth > 768 || event.pointerType !== 'mouse' || event.button !== 0) return;
+        suppressClick = false;
+        drag = { id:event.pointerId, x:event.clientX, scroll:cards.scrollLeft, moved:false };
+      });
+      cards.addEventListener('pointermove', event => {
+        if (!drag || event.pointerId !== drag.id) return;
+        const distance = event.clientX - drag.x;
+        if (!drag.moved && Math.abs(distance) < 8) return;
+        drag.moved = true;
+        cards.setPointerCapture(event.pointerId);
+        cards.classList.add('is-dragging');
+        cards.scrollLeft = drag.scroll - distance;
+        event.preventDefault();
+      });
+      const finishDrag = event => {
+        if (!drag || event.pointerId !== drag.id) return;
+        suppressClick = drag.moved;
+        if (cards.hasPointerCapture(event.pointerId)) cards.releasePointerCapture(event.pointerId);
+        cards.classList.remove('is-dragging');
+        drag = null;
+      };
+      window.addEventListener('pointerup', finishDrag);
+      window.addEventListener('pointercancel', finishDrag);
+      cards.addEventListener('dragstart', event => { if (innerWidth <= 768) event.preventDefault(); });
+      cards.addEventListener('click', event => {
+        if (!suppressClick) return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        suppressClick = false;
+      }, true);
+    }
+    // Preserve the navigation's document position while pinning it to the viewport.
+    const mobileNav = root.querySelector('.statusbar');
+    if (mobileNav) {
+      const navSpace = document.createElement('div');
+      navSpace.className = 'r2-nav-space';
+      navSpace.setAttribute('aria-hidden', 'true');
+      mobileNav.before(navSpace);
+      let navFrame = 0;
+      const syncNav = () => {
+        navFrame = 0;
+        const pinned = query.matches && navSpace.getBoundingClientRect().top <= 0;
+        mobileNav.classList.toggle('r2-is-fixed', pinned);
+        navSpace.style.height = pinned ? `${mobileNav.getBoundingClientRect().height}px` : '0px';
+      };
+      const queueNav = () => { if (!navFrame) navFrame = requestAnimationFrame(syncNav); };
+      window.addEventListener('scroll', queueNav, { passive:true });
+      window.addEventListener('resize', queueNav);
+      window.addEventListener('load', queueNav);
+      query.addEventListener('change', queueNav);
+      new ResizeObserver(queueNav).observe(mobileNav);
+      syncNav();
+    }
     // 작은 화면에서는 고정 메뉴 높이를 포함해 앵커를 이동합니다.
     root.querySelectorAll('.statusbar__links a[href^="#"]').forEach(link => {
       link.addEventListener('click', event => {

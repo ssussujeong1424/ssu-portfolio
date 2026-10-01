@@ -1,3 +1,11 @@
+// Observe the artwork on small screens; keep the original PC title trigger.
+function observeCarouselViewport(observer, title, artwork) {
+  const responsive = matchMedia('(max-width:1024px)');
+  const update = () => { observer.disconnect(); observer.observe(responsive.matches && artwork ? artwork : title); };
+  update();
+  responsive.addEventListener('change', update);
+}
+
 // Entrance motion: cover / ABOUT / WORKS headings
 (function initSectionEntranceMotion(){
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -260,13 +268,13 @@ function measureStatusbarStickyStart() {
   if (!statusbar) return;
   const wasSticky = statusbar.classList.contains('is-sticky');
   statusbar.classList.remove('is-sticky');
-  statusbarStickyStart = statusbar.offsetTop;
+  statusbarStickyStart = statusbar.getBoundingClientRect().top + window.scrollY;
   if (wasSticky) statusbar.classList.add('is-sticky');
 }
 
 function updateStatusbarSticky() {
   if (!statusbar) return;
-  if (window.innerWidth <= 1200) {
+  if (window.innerWidth <= 1024) {
     statusbar.classList.remove('is-sticky');
     return;
   }
@@ -312,7 +320,7 @@ if (statusbar) {
   if (!range || !word) return;
 
   const STICKY_TOP = 323;
-  const DESKTOP_MIN = 1201;
+  const DESKTOP_MIN = 1025;
 
   function reset(){
     word.classList.remove('is-redesign-fixed','is-redesign-ended');
@@ -587,7 +595,7 @@ if (statusbar) {
       if (sectionActive) startAuto();
       else stopAuto();
     }, { threshold: 0.15 });
-    observer.observe(sectionNumber);
+    observeCarouselViewport(observer, sectionNumber, slider);
   } else {
     sectionActive = true;
     startAuto();
@@ -790,7 +798,7 @@ if (statusbar) {
       if (sectionActive) scheduleNext();
       else window.clearTimeout(autoTimer);
     }, { threshold: 0.15 });
-    observer.observe(sectionNumber);
+    observeCarouselViewport(observer, sectionNumber, root.querySelector('.poster-image'));
   } else {
     sectionActive = true;
     scheduleNext();
@@ -963,7 +971,7 @@ if (statusbar) {
       if (sectionActive) schedule();
       else stopAuto();
     }, { threshold: 0.15 });
-    observer.observe(sectionNumber);
+    observeCarouselViewport(observer, sectionNumber, root.querySelector('.popup-stack'));
   } else {
     sectionActive = true;
     schedule();

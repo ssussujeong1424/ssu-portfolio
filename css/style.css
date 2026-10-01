@@ -186,7 +186,7 @@ figure,p,h1,h2,h3,dl,dd,dt{margin:0}
 .contact-section{top:26770.676px;height:1080.148px;background:#fff}.contact-badge{left:116.5px;top:106.631px}.contact-copy{position:absolute;left:116.5px;top:253.074px;width:555px}.contact-copy h2{font-size:50px;line-height:1.4;letter-spacing:3.5px;font-weight:500}.contact-copy h2 em{font-style:normal;color:#db9890}.contact-copy p{margin-top:48px;font-size:25px;line-height:1.4;letter-spacing:1.75px}.contact-info{position:absolute;left:116.5px;top:790.574px;width:347px}.contact-info h3{font-size:25px;letter-spacing:1.75px}.contact-info dl{margin-top:26px}.contact-info dl div+div{margin-top:32px}.contact-info dt{font-size:16px;line-height:1.4;letter-spacing:4px;color:#71716f}.contact-info dd{margin-top:8px;font-size:20px;letter-spacing:1.4px;font-weight:500}.contact-photo{left:686.996px;top:160.631px;width:1233.004px;height:919.518px}.contact-photo img{width:133.14%;height:100.48%;left:-33.14%;top:0}.thank{position:absolute;left:752.926px;font-size:200px;line-height:1.5;font-weight:900;color:#fff;white-space:nowrap}.thank-a{top:174.074px}.thank-b{top:356.074px;color:transparent;-webkit-text-stroke:2px #fff}.thanks-viewing{position:absolute;left:785.926px;top:616.074px;font-size:20px;line-height:1.5;letter-spacing:7.2px;color:#fff;font-weight:500}.contact-tags{position:absolute;left:785.926px;top:917.324px;display:flex;align-items:center;gap:16px;color:#fff;font-size:14px;letter-spacing:.98px;font-weight:500}.contact-tags i{width:3px;height:3px;border-radius:50%;background:#fff}.contact-line{position:absolute;left:786.406px;top:896.586px;width:44.676px;height:1px;background:#fff}
 
 /* TABLET / MOBILE REFLOW */
-@media (max-width:1200px){
+@media (max-width:1024px){
   body{background:#fff}.portfolio{width:100%;height:auto;overflow:visible}.figma-section{position:relative!important;top:auto!important;left:auto!important;width:100%!important;height:auto!important;overflow:hidden;padding:80px 48px}
   .cover{min-height:760px;padding:54px 48px}.cover-bg{inset:0;width:100%;height:100%;object-fit:cover}.cover-kicker,.cover-title,.cover-copy,.cover-meta,.cover-name{position:relative;left:auto;top:auto;width:auto;height:auto;text-align:left}.cover-kicker{font-size:16px}.cover-title{margin-top:150px;font-size:clamp(86px,15vw,180px);letter-spacing:4px;white-space:normal}.cover-copy{margin-top:26px;font-size:28px;line-height:1.25}.cover-meta{position:absolute;left:48px;bottom:54px}.cover-name{position:absolute;right:48px;bottom:54px;left:auto}
   .badge,.about-title,.about-photo,.about-copy,.about-link,.statusbar,.works-bg,.work-title,.banner-slider,.banner-image,.banner-caption,.petal,.poster-image,.poster-copy,.poster-thumbs,.detail-link,.detail-cards,.popup-stack,.popup-bars,.popup-caption,.aesop-badge,.aesop-title,.aesop-device-pc,.aesop-device-pad,.aesop-device-mo,.contribution,.aesop-links,.case-bg,.side-title,.side-line,.direction-grid,.problem-grid,.goal-grid,.redesign-word,.color-lead,.green-scale,.aesop-color-cards,.type-lead,.aesop-type-sample,.aesop-type-scale,.page-title,.page-shot,.aesop-green-blob,.aesop-leaf,.aesop-forest,.aesop-dot,.best-shape,.best-scroll,.note,.product-pad-bg,.product-pad-main,.product-mobile,.detail-pc-shot,.detail-pad-shot,.detail-mo-shot,.promo-pc-shot,.promo-mo-1,.promo-mo-2,.homfit-badge,.homfit-title,.homfit-link,.homfit-device-pc,.homfit-device-pad,.homfit-device-mo,.homfit-bg,.homfit-story-bg,.homfit-section-title,.homfit-story-copy,.homfit-design-system,.responsive-heading,.device-specs,.homfit-product-mo,.homfit-grid-pad,.column-grid,.grid-system-label,.grid-copy,.homfit-hero-pad,.homfit-hero-mo,.hero-copy,.homfit-pad4,.homfit-horizontal,.swipe-copy,.swipe-arrow,.responsive-word,.responsive-visual,.design-word,.responsive-copy,.homfit-final,.homfit-final-title,.contact-badge,.contact-copy,.contact-info,.contact-photo,.thank,.thanks-viewing,.contact-tags,.contact-line{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:auto;height:auto}
@@ -270,7 +270,7 @@ body.resume-open{overflow:hidden}
 .detail-modal__close:hover{background:#faecec}
 body.detail-modal-open{overflow:hidden}
 
-@media (max-width:1200px){
+@media (max-width:1024px){
   .detail-cards figure{height:auto}
   .detail-card__media{width:100%;height:auto;aspect-ratio:2/3;flex:auto}
   .detail-headphone{width:100%!important;height:auto!important;aspect-ratio:2/3;flex:auto}
@@ -319,7 +319,7 @@ body.detail-modal-open{overflow:hidden}
 }
 
 /* v13 — Aesop Page Design Figma correction */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* Main Page / Product List / Detail / Promotion titles are centered on the 1920 frame. */
   .aesop-case .page-title{
     left:50%!important;
@@ -464,11 +464,11 @@ body.detail-modal-open{overflow:hidden}
   .note-product p{width:561px;white-space:nowrap}
 }
 
-@media (max-width:1200px){
+@media (max-width:1024px){
   .aesop-case .page-title{transform:none!important}
   .product-pad-strip{display:none!important}
 }
-@media (max-width:1200px){
+@media (max-width:1024px){
   .aesop-best-shot{
     display:block!important;
     position:relative!important;
@@ -478,7 +478,7 @@ body.detail-modal-open{overflow:hidden}
 }
 
 /* v15 — exact Figma annotation geometry + Detail Page stars */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* Figma title boxes: keep the exact 1920px-frame positions instead of max-content centering. */
   .aesop-case .main-page-title{
     left:862.000244px!important;
@@ -558,7 +558,7 @@ body.detail-modal-open{overflow:hidden}
 
 
 /* v16 — Page Design corrections from the PC-피그마 original */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* Product List Page: the original has no dot/line connector beside this copy. */
   .note-product>img{display:none!important}
 
@@ -624,7 +624,7 @@ body.detail-modal-open{overflow:hidden}
 
 
 /* v17 — restore Aesop Best Seller + HOMFIT Figma values */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* Best Seller uses the exact exported Figma rectangles (190:46 / 409:215). */
   .aesop-best-shot{
     left:671px!important;
@@ -682,7 +682,7 @@ body.detail-modal-open{overflow:hidden}
 }
 
 /* v18 — Figma match: Aesop Best Seller + HOMFIT grid section */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* The Figma laptop PNG has transparent/white outer pixels. Multiply removes the
      visible white rectangle against the #F9F9F5 Aesop case background without
      changing the layout or the overlaid horizontal products. */
@@ -815,12 +815,12 @@ body.detail-modal-open{overflow:hidden}
   .grid-copy dl div+div{margin-top:25px!important}
 }
 
-@media (max-width:1200px){
+@media (max-width:1024px){
   .mobile-column-grid,.grid-label-curve{display:none!important}
 }
 
 /* v19 — cumulative fixes for the previous HOMFIT / AESOP requests */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* Aesop Best Seller: remove the visible white rectangle around the laptop.
      Keep the exact Figma geometry and let the case background show through. */
   .aesop-best-shot{
@@ -858,7 +858,7 @@ body.detail-modal-open{overflow:hidden}
 
 
 /* v20 — exact Figma corrections: Best Seller / Detail title / HOMFIT design + responsive devices */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* Aesop Best Seller: the correct Figma PNG has transparency around the laptop.
      darken also neutralizes any stale white matte in an older local export. */
   .aesop-best-shot{
@@ -1020,7 +1020,7 @@ body.detail-modal-open{overflow:hidden}
 }
 
 /* v21 — user/Figma corrections: full Best Seller composite, HOMFIT hero title, final DESIGN, contact */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* Use the user-provided full Figma Best Seller composite as one transparent asset.
      This removes the white matte that came from rebuilding the group from separate exports. */
   .aesop-best-group{
@@ -1068,7 +1068,7 @@ body.detail-modal-open{overflow:hidden}
   }
 }
 
-@media (max-width:1200px){
+@media (max-width:1024px){
   .aesop-best-group{
     position:relative!important;
     display:block;
@@ -1142,7 +1142,7 @@ body.detail-modal-open{overflow:hidden}
   transform-origin:left center;
 }
 
-@media (min-width:1201px){
+@media (min-width:1025px){
   .motion-js .column-grid.grid-reveal-ready i{
     opacity:0;
     transform:translate3d(0,-150px,0);
@@ -1194,11 +1194,11 @@ body.detail-modal-open{overflow:hidden}
 
 /* v30 Product List composite replacement */
 .product-pad-bg,.product-pad-main,.product-mobile,.product-pad-strip{display:none!important}
-@media (max-width:1200px){.product-list-composite{position:relative!important;left:auto!important;top:auto!important;width:100%!important;height:auto!important;margin-top:22px;object-fit:contain}}
+@media (max-width:1024px){.product-list-composite{position:relative!important;left:auto!important;top:auto!important;width:100%!important;height:auto!important;margin-top:22px;object-fit:contain}}
 
 
 /* v33 — grid columns fall downward + mobile swipe arrow reveals left → right */
-@media (min-width:1201px){
+@media (min-width:1025px){
   .motion-js .swipe-arrow.swipe-arrow-reveal-ready{
     clip-path:inset(0 100% 0 0);
     opacity:.15;
@@ -1218,7 +1218,7 @@ body.detail-modal-open{overflow:hidden}
 }
 
 /* v34 — refine HOMFIT swipe-arrow head + slightly faster reveal */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* Keep the original Figma curve, but strengthen the tiny arrow head so both sides read evenly. */
   .swipe-arrow path:first-child{
     stroke-width:2.2!important;
@@ -1237,7 +1237,7 @@ body.detail-modal-open{overflow:hidden}
 
 
 /* v35 — use the user-provided Group 27 SVG exactly for the mobile swipe arrow. */
-@media (min-width:1201px){
+@media (min-width:1025px){
   .swipe-arrow{
     position:absolute!important;
     left:747.5px!important;
@@ -1257,13 +1257,13 @@ body.detail-modal-open{overflow:hidden}
 
 
 /* v36 — AESOP page-design entrance motion refinements */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* Pull the HOMFIT responsive caption slightly inward from the right edge. */
   .responsive-copy{left:1152.852417px!important;}
 }
 
 /* v38 — AESOP Main Page reveal refinements + rotating review stars */
-@media (min-width:1201px){
+@media (min-width:1025px){
   /* JS performs the one-time entrance animation; keep the resting state untouched. */
   [data-aesop-new-spread],
   [data-aesop-new-copy],
@@ -1283,7 +1283,7 @@ body.detail-modal-open{overflow:hidden}
 }
 
 /* v42: AESOP new-product laptop video — overlays only the left media pane. */
-@media (min-width:1201px){
+@media (min-width:1025px){
   .aesop-forest-video{
     position:absolute;
     left:467px;
@@ -1300,7 +1300,7 @@ body.detail-modal-open{overflow:hidden}
     transform:translateZ(0);
   }
 }
-@media (max-width:1200px){
+@media (max-width:1024px){
   .aesop-forest-video{display:none!important}
 }
 
@@ -1309,7 +1309,7 @@ body.detail-modal-open{overflow:hidden}
    1) AESOP hero description slides left -> right.
    2) HOMFIT Brand Story image/text reveal from the center outward.
    3) AESOP Forest video stays visible and autoplay-safe on desktop. */
-@media (min-width:1201px){
+@media (min-width:1025px){
   [data-aesop-hero-slide],
   [data-homfit-story-reveal]{
     will-change:transform,opacity,clip-path;
@@ -1324,7 +1324,7 @@ body.detail-modal-open{overflow:hidden}
 }
 
 /* The user explicitly wants this video even when reduced-motion is enabled. */
-@media (min-width:1201px) and (prefers-reduced-motion:reduce){
+@media (min-width:1025px) and (prefers-reduced-motion:reduce){
   .aesop-forest-video{display:block!important;visibility:visible!important;opacity:1!important}
 }
 
