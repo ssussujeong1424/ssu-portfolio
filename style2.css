@@ -1268,3 +1268,18 @@
   .portfolio .direction-grid article { height:80px!important; min-height:80px!important; }
   .portfolio .direction-grid p { margin-top:12px!important; line-height:24px!important; }
 }
+
+/* MO grid image supplied by the user is a complete composition. Hide legacy overlays. */
+@media (max-width:768px) {
+  .portfolio .r2-grid-scene .homfit-product-mo,
+  .portfolio .r2-grid-scene .column-grid,
+  .portfolio .r2-grid-scene .grid-label-curve,
+  .portfolio .r2-grid-scene .grid-system-label,
+  .portfolio .r2-grid-scene .mobile-grid-curve { display:none!important; }
+  .portfolio .r2-grid-scene .homfit-grid-pad { display:block!important; }
+
+  .portfolio .direction-grid { row-gap:30px!important; }
+  .portfolio .direction-grid article { min-height:80px!important; height:80px!important; }
+  .portfolio .direction-grid b { line-height:18px!important; }
+  .portfolio .direction-grid p { margin-top:12px!important; line-height:24px!important; }
+}
