@@ -1283,3 +1283,8 @@
   .portfolio .direction-grid b { line-height:18px!important; }
   .portfolio .direction-grid p { margin-top:12px!important; line-height:24px!important; }
 }
+/* Figma MO direction rows: keep exactly 12px between heading and paragraph. */
+@media (max-width:768px) {
+  .portfolio .direction-grid article { row-gap:0!important; column-gap:12px!important; }
+  .portfolio .direction-grid p { margin-top:12px!important; }
+}
