@@ -991,6 +991,7 @@ if (statusbar) {
 
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   grid.classList.add('grid-reveal-ready');
+  Array.from(grid.children).forEach((column, index) => column.style.setProperty('--grid-delay', (index * 45) + 'ms'));
   curves.forEach((curve) => {
     curve.classList.add('grid-curve-ready');
     const path = curve.querySelector('path');

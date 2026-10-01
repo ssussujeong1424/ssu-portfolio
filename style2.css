@@ -1300,22 +1300,54 @@
   .portfolio .contact-info dd { letter-spacing:1.26px!important; }
   .portfolio .r2-grid-scene .homfit-grid-pad { content:url('./img/homfit-grid-pad.png?v=23')!important; }
 }
-/* PAD-only Figma grid width update. */
-@media (min-width:769px) and (max-width:1024px) {
-  .portfolio .r2-grid-scene .column-grid { left:7.067%!important; width:38%!important; }
-}
 
-/* PAD grid fine-tune: slightly wider than the original, matching Figma. */
+/* PAD Figma 659:943 / 660:956: 277px field, twelve columns, 5px gutters.
+   Coordinates are relative to the 900px scene at frame x=62, y=21572. */
 @media (min-width:769px) and (max-width:1024px) {
-  .portfolio .r2-grid-scene .column-grid { left:8.5%!important; width:33%!important; }
+  .portfolio .r2-grid-scene .column-grid {
+    left:10.333333%!important; width:30.777778%!important;
+    top:39px!important; height:478px!important;
+    gap:0 1.805054%!important; padding:0!important;
+    grid-template-columns:repeat(12,minmax(0,1fr))!important;
+    transform:none!important;
+  }
+  .portfolio .r2-grid-scene .grid-system-label {
+    left:21.222222%!important; top:18px!important;
+    width:110px!important; height:auto!important; margin:0!important;
+    text-align:left!important; font-size:1.171875vw!important; line-height:normal!important;
+    letter-spacing:.08203125vw!important; transform:none!important;
+  }
+  .portfolio .r2-grid-scene .grid-label-curve {
+    top:23px!important; height:31px!important;
+  }
+  .portfolio .r2-grid-scene .grid-label-curve--left {
+    left:10.333333%!important; width:10.166667%!important;
+  }
+  .portfolio .r2-grid-scene .grid-label-curve--right {
+    left:32.5%!important; width:9.611111%!important;
+  }
 }
-
-/* PAD grid: wider pink field with a white inset before the black device edge. */
-@media (min-width:769px) and (max-width:1024px) {
-  .portfolio .r2-grid-scene .column-grid { left:7.5%!important; width:36%!important; }
+.mo-aesop-word-space { display:none; }
+@media (max-width:768px) {
+  .portfolio .aesop-title .mo-aesop-word-space { display:inline; }
 }
-
-/* PAD grid correction: all 12 pink columns stay inside the device with white side insets. */
-@media (min-width:769px) and (max-width:1024px) {
-  .portfolio .r2-grid-scene .column-grid { left:9%!important; width:34%!important; grid-template-columns:repeat(12,minmax(0,1fr))!important; }
+/* Responsive scroll reveals; preserve the existing artwork and geometry. */
+@media (min-width:769px) and (max-width:1024px) and (prefers-reduced-motion:no-preference) {
+  .motion-js .column-grid.grid-reveal-ready i { opacity:0; transform:translate3d(0,-150px,0); }
+  .motion-js .column-grid.grid-reveal-ready.is-grid-in i {
+    animation:gridColumnDrop 1.7s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay:var(--grid-delay,0ms);
+  }
+}
+@media (max-width:1024px) and (prefers-reduced-motion:no-preference) {
+  .motion-js .swipe-arrow.swipe-arrow-reveal-ready { clip-path:inset(0 100% 0 0); opacity:.15; }
+  .motion-js .swipe-arrow.swipe-arrow-reveal-ready.is-swipe-arrow-in {
+    animation:swipeArrowRevealLTR 1.25s cubic-bezier(.22,1,.36,1) .08s forwards;
+  }
+}
+/* MO uses the full supplied composition without a reveal or crop. */
+@media (max-width:768px) {
+  .portfolio .r2-grid-scene .homfit-grid-pad {
+    object-fit:contain!important; clip-path:none!important; animation:none!important;
+  }
 }
