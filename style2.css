@@ -1288,3 +1288,34 @@
   .portfolio .direction-grid article { row-gap:0!important; column-gap:12px!important; }
   .portfolio .direction-grid p { margin-top:12px!important; }
 }
+/* Keep original PC/PAD grid artwork; use supplied complete composition only on MO. */
+@media (max-width:768px) { .portfolio .r2-grid-scene .homfit-grid-pad { content:url('./img/homfit-grid-pad-mo.png?v=23')!important; } }
+
+/* PAD contact typography and Figma grid composition. */
+@media (min-width:769px) and (max-width:1024px) {
+  .portfolio .contact-copy h2 { letter-spacing:2.8px!important; }
+  .portfolio .contact-copy p { letter-spacing:1.4px!important; }
+  .portfolio .contact-info h3 { letter-spacing:1.4px!important; }
+  .portfolio .contact-info dt { letter-spacing:3.5px!important; }
+  .portfolio .contact-info dd { letter-spacing:1.26px!important; }
+  .portfolio .r2-grid-scene .homfit-grid-pad { content:url('./img/homfit-grid-pad.png?v=23')!important; }
+}
+/* PAD-only Figma grid width update. */
+@media (min-width:769px) and (max-width:1024px) {
+  .portfolio .r2-grid-scene .column-grid { left:7.067%!important; width:38%!important; }
+}
+
+/* PAD grid fine-tune: slightly wider than the original, matching Figma. */
+@media (min-width:769px) and (max-width:1024px) {
+  .portfolio .r2-grid-scene .column-grid { left:8.5%!important; width:33%!important; }
+}
+
+/* PAD grid: wider pink field with a white inset before the black device edge. */
+@media (min-width:769px) and (max-width:1024px) {
+  .portfolio .r2-grid-scene .column-grid { left:7.5%!important; width:36%!important; }
+}
+
+/* PAD grid correction: all 12 pink columns stay inside the device with white side insets. */
+@media (min-width:769px) and (max-width:1024px) {
+  .portfolio .r2-grid-scene .column-grid { left:9%!important; width:34%!important; grid-template-columns:repeat(12,minmax(0,1fr))!important; }
+}
