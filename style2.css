@@ -1239,3 +1239,32 @@
   .portfolio .cover-meta { left:calc(50% - 34.83px)!important; }
   .portfolio .cover-bg { width:891.95px!important; left:calc(50% - 428.2px)!important; }
 }
+
+/* Latest MO grid placement composition from Figma 779:301. */
+@media (max-width:768px) {
+  .portfolio .r2-grid-scene .homfit-grid-pad { position:absolute!important; left:calc(50% - 125.11px)!important; top:-56.94px!important; width:154.612px!important; height:195.299px!important; margin:0!important; transform:none!important; object-fit:cover!important; }
+  .portfolio .r2-grid-scene .column-grid { left:calc(50% - 49.5px)!important; top:-61.64px!important; width:125px!important; height:218.914px!important; }
+  .portfolio .r2-grid-scene .grid-system-label { left:100.55px!important; top:-73.55px!important; width:63.296px!important; height:14.206px!important; font-size:6px!important; letter-spacing:.42px!important; }
+  .portfolio .r2-grid-scene .mobile-grid-curve { width:29.464px!important; height:12.18px!important; }
+  .portfolio .r2-grid-scene .mobile-grid-curve--left { left:calc(50% - 109.05px)!important; top:-68.98px!important; }
+  .portfolio .r2-grid-scene .mobile-grid-curve--right { left:calc(50% - 16.02px)!important; top:-68.52px!important; }
+  .portfolio .r2-grid-scene .grid-copy { position:absolute!important; grid-area:auto!important; left:216.17px!important; top:-1.2px!important; width:115px!important; margin:0!important; }
+  .portfolio .r2-grid-scene .grid-copy h3 { font-size:15px!important; line-height:22px!important; letter-spacing:1.05px!important; white-space:nowrap!important; }
+}
+/* Scale the 402px cover proportionally on very narrow phones, including ~280px. */
+@media (max-width:402px) {
+  .portfolio .cover { height:124.6269vw!important; min-height:124.6269vw!important; }
+  .portfolio .cover-bg { height:124.6269vw!important; }
+  .portfolio .cover-kicker { left:5.266vw!important; top:9.276vw!important; font-size:2.736vw!important; letter-spacing:.793vw!important; }
+  .portfolio .cover-title { left:calc(50% - 8.664vw)!important; top:46.269vw!important; font-size:12.437vw!important; letter-spacing:.498vw!important; }
+  .portfolio .cover-copy { left:5.266vw!important; top:62.127vw!important; font-size:3.731vw!important; letter-spacing:.261vw!important; }
+  .portfolio .cover-name { left:calc(50% + 22.928vw)!important; top:111.194vw!important; font-size:2.736vw!important; letter-spacing:.191vw!important; }
+  .portfolio .cover-meta { left:calc(50% - 8.664vw)!important; top:115.423vw!important; font-size:2.736vw!important; letter-spacing:.191vw!important; gap:1.99vw!important; }
+}
+
+/* MO brand-direction spacing from Figma 698:444. */
+@media (max-width:768px) {
+  .portfolio .direction-grid { margin-top:39.5px!important; }
+  .portfolio .direction-grid article { height:80px!important; min-height:80px!important; }
+  .portfolio .direction-grid p { margin-top:12px!important; line-height:24px!important; }
+}
