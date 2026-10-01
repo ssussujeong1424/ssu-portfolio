@@ -1900,3 +1900,6 @@ body.detail-modal-open{overflow:hidden}
   .direction-grid img{max-width:58px!important;max-height:58px!important}
   .device-specs img{max-width:48px!important;max-height:48px!important}
 }
+
+@media (max-width:768px){.detail-modal__close{right:28px!important}}
+

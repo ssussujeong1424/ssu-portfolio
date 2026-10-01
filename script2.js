@@ -47,7 +47,7 @@
           changes.push(() => marker.replaceWith(stars));
         }
         group('.aesop-case', '.promo-pc-shot,.promo-mo-1,.promo-mo-2', 'r2-promo-scene');
-        group('.homfit-case', '.homfit-product-mo,.homfit-grid-pad,.column-grid,.grid-system-label,.grid-label-curve,.grid-copy', 'r2-grid-scene');
+        group('.homfit-case', '.homfit-product-mo,.homfit-grid-pad,.column-grid,.grid-system-label,.grid-label-curve,.mobile-grid-curve,.grid-copy', 'r2-grid-scene');
         group('.homfit-case', '.homfit-hero-pad,.homfit-hero-mo,.hero-copy', 'r2-banner-scene');
         group('.homfit-case', '.homfit-pad4,.homfit-horizontal,.swipe-copy,.swipe-arrow', 'r2-swipe-scene');
       } else if (!query.matches && root.classList.contains('responsive2')) {
