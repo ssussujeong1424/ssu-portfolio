@@ -961,7 +961,7 @@
   .portfolio .cover-meta { top:464px!important; gap:8px!important; right:6.42418%!important; }
   .portfolio .cover-bg { object-fit:fill!important; width:221.88%!important; left:-56.52%!important; max-width:none!important; }
   .portfolio .cover { overflow:clip!important; }
-  .portfolio .about { padding-bottom:49.324px!important; }
+  .portfolio .about { padding-bottom:75.386px!important; }
   .portfolio .statusbar,.portfolio .statusbar.is-sticky { height:72px!important; padding:46px 12px 12px!important; justify-content:center!important; gap:30px!important; }
   .portfolio .statusbar.is-closed { height:37px!important; padding:12px!important; }
   .portfolio .statusbar__links { gap:30px!important; }
@@ -1209,3 +1209,33 @@
 /* Mobile detail modal close button stays inside the scroll gutter. */
 @media (max-width:768px) { .portfolio .detail-modal__close { right:28px !important; } }
 
+
+/* MO cover and statusbar dimensions from latest Figma 634:117. */
+@media (max-width:768px) {
+  .portfolio .cover { height:501px!important; min-height:501px!important; padding:0!important; }
+  .portfolio .cover-bg { width:221.88%!important; height:501px!important; left:-56.52%!important; top:0!important; object-fit:fill!important; }
+  .portfolio .cover-kicker { left:21.17px!important; top:37.29px!important; font-size:11px!important; line-height:normal!important; letter-spacing:3.19px!important; }
+  .portfolio .cover-title { left:calc(50% - 34.83px)!important; top:186px!important; width:max-content!important; transform:translateX(-50%)!important; font-size:50px!important; line-height:normal!important; letter-spacing:2px!important; white-space:nowrap!important; text-align:center!important; margin:0!important; }
+  .portfolio .cover-copy { left:21.17px!important; top:249.75px!important; font-size:15px!important; line-height:normal!important; letter-spacing:1.05px!important; max-width:none!important; }
+  .portfolio .cover-name { left:293.17px!important; right:auto!important; top:447px!important; font-size:11px!important; line-height:normal!important; letter-spacing:.77px!important; }
+  .portfolio .cover-meta { left:166.17px!important; right:auto!important; top:464px!important; font-size:11px!important; line-height:normal!important; letter-spacing:.77px!important; gap:8px!important; max-width:none!important; flex-wrap:nowrap!important; }
+  .portfolio .statusbar,.portfolio .statusbar.is-sticky { height:46px!important; padding:12px!important; justify-content:center!important; gap:30px!important; font-size:11px!important; line-height:normal!important; }
+  .portfolio .statusbar__links { gap:30px!important; }
+  .portfolio .statusbar__links a { font-size:11px!important; line-height:normal!important; }
+}
+
+/* MO statusbar arrow: open and closed states share the same right edge. */
+@media (max-width:768px) {
+  .portfolio .statusbar { position:relative!important; }
+  .portfolio .statusbar__toggle,
+  .portfolio .statusbar.is-closed .statusbar__toggle { position:absolute!important; right:12px!important; top:50%!important; margin:0!important; transform:translateY(-50%)!important; }
+}
+
+/* Keep the 402px MO cover composition centered through the intermediate widths. */
+@media (min-width:403px) and (max-width:768px) {
+  .portfolio .cover-kicker { left:calc(50% - 180.83px)!important; }
+  .portfolio .cover-copy { left:calc(50% - 180.83px)!important; }
+  .portfolio .cover-name { left:calc(50% + 92.17px)!important; }
+  .portfolio .cover-meta { left:calc(50% - 34.83px)!important; }
+  .portfolio .cover-bg { width:891.95px!important; left:calc(50% - 428.2px)!important; }
+}
