@@ -1351,3 +1351,17 @@
     object-fit:contain!important; clip-path:none!important; animation:none!important;
   }
 }
+@font-face {
+  font-family:'PAD Cover Cormorant';
+  src:url('./fonts/CormorantGaramond-Medium.ttf') format('truetype');
+  font-style:normal;
+  font-weight:500;
+  font-display:swap;
+}
+/* 2026-10-02 — PAD cover typography, Figma 634:116. */
+@media (min-width:769px) and (max-width:1024px) {
+  .portfolio .cover-title { font-family:'PAD Cover Cormorant',serif!important; left:48.046875%!important; width:max-content!important; transform:translateX(-50%)!important; line-height:normal!important; }
+  .portfolio .cover-kicker { font-size:15px!important; letter-spacing:4.35px!important; line-height:normal!important; }
+  .portfolio .cover-meta { font-size:15px!important; letter-spacing:1.05px!important; height:auto!important; line-height:normal!important; }
+  .portfolio .cover-name { left:83.30078125%!important; right:auto!important; font-size:15px!important; letter-spacing:1.05px!important; line-height:normal!important; }
+}
