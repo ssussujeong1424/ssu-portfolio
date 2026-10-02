@@ -306,10 +306,14 @@ if (statusbar) {
   measureStatusbarStickyStart();
   updateStatusbarSticky();
   window.addEventListener('scroll', updateStatusbarSticky, { passive: true });
-  window.addEventListener('resize', () => {
+  // Measure after responsive canvas scaling and layout have settled.
+  const refreshStatusbar = () => requestAnimationFrame(() => {
     measureStatusbarStickyStart();
     updateStatusbarSticky();
   });
+  refreshStatusbar();
+  window.addEventListener('load', refreshStatusbar);
+  window.addEventListener('resize', refreshStatusbar);
 }
 
 // AESOP REDESIGN background word: fixed while its Figma range is on screen, stops before Page Design

@@ -1065,6 +1065,7 @@
 /* Keep the desktop canvas inside intermediate laptop viewports. */
 @media (min-width:1025px) and (max-width:1919px) {
  .portfolio { width:1920px!important; max-width:none!important; margin:0!important; zoom:var(--desktop-scale,1); }
+ .portfolio .statusbar.is-sticky { left:0; width:1920px; transform:none; }
 }
 @media (min-width:769px) and (max-width:1023px) {
  .portfolio .grid-copy h3,.portfolio .hero-copy h3,.portfolio .swipe-copy h3 { font-size:clamp(30px,3.90625vw,40px)!important; letter-spacing:.07em!important; }
